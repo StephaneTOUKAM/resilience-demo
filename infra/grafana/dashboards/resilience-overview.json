@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "type": "graph",
+      "title": "HTTP Server Requests (count)",
+      "targets": [
+        {
+          "expr": "sum(increase(http_server_requests_seconds_count[1m])) by (uri)",
+          "legendFormat": "{{uri}}"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Circuit Breaker Calls (Resilience4j)",
+      "targets": [
+        {
+          "expr": "resilience4j_circuitbreaker_calls_seconds_count",
+          "legendFormat": "{{name}} {{kind}} {{outcome}}"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 27,
+  "title": "Resilience Overview",
+  "version": 1
+}

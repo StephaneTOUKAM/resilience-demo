@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: ['api-gateway:8080']
+    metrics_path: /actuator/prometheus
+
+  - job_name: 'catalog-service'
+    static_configs:
+      - targets: ['catalog-service:8081']
+    metrics_path: /actuator/prometheus
+
+  - job_name: 'stock-service'
+    static_configs:
+      - targets: ['stock-service:8082']
+    metrics_path: /actuator/prometheus
